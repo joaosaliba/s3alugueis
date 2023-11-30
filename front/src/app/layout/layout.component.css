@@ -1,0 +1,10 @@
+mat-drawer-container {
+    height: 100%;
+  }
+  .example-sidenav {
+    width: 300px;
+  }
+  mat-drawer-content {
+    padding: 25px;
+  }
+ 
