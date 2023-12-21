@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Hello {
 
     @GetMapping("hello")
-    public SomeData getMethodName(@RequestParam String param) {
+    public SomeData getMethodName() {
         return  new SomeData("Hello");
     }
     
