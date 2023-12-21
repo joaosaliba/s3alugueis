@@ -1,7 +1,10 @@
 package br.com.s3alugueis.app.dto;
 
-public record RegisterRequest(String name,
-String email,
-String password) {
-    
+import jakarta.validation.constraints.NotBlank;
+
+public record RegisterRequest(
+        @NotBlank String name,
+        @NotBlank String email,
+        @NotBlank String password) {
+
 }

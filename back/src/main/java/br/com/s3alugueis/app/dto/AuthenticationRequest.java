@@ -1,6 +1,9 @@
 package br.com.s3alugueis.app.dto;
 
-public record AuthenticationRequest(String email,
-        String password) {
+import jakarta.validation.constraints.NotNull;
+
+public record AuthenticationRequest(
+                @NotNull String email,
+                @NotNull String password) {
 
 }

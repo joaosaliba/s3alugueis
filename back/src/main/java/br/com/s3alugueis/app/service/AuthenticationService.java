@@ -14,12 +14,13 @@ import br.com.s3alugueis.app.util.JwtUtil;
 
 @Service
 public class AuthenticationService {
-      private final UserRepository userRepository;
-   private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     private final JwtUtil jwtService;
 
     private final AuthenticationManager authenticationManager;
+
     public AuthenticationService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtService,
             AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
@@ -28,13 +29,11 @@ public class AuthenticationService {
         this.authenticationManager = authenticationManager;
     }
 
- 
-
     public AuthenticationResponse register(RegisterRequest request) {
         User user = new User();
-                user.setName(request.name());
-                user.setEmail(request.email());
-               user .setPassword(passwordEncoder.encode(request.password()));
+        user.setName(request.name().trim());
+        user.setEmail(request.email().trim());
+        user.setPassword(passwordEncoder.encode(request.password()));
         userRepository.save(user);
         String jwtToken = jwtService.generateToken(user);
         return new AuthenticationResponse(jwtToken);
@@ -49,5 +48,5 @@ public class AuthenticationService {
         String jwtToken = jwtService.generateToken(user);
         return new AuthenticationResponse(jwtToken);
     }
-    
+
 }
