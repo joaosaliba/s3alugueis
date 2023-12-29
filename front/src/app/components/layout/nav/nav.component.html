@@ -9,10 +9,16 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+      >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      
       </button>
-      <mat-icon>home</mat-icon> <span> S3 Alugueis </span>
+    <div [routerLink]="'/'" fxFlex fxLayout="row" fxLayoutAlign="start center"> <mat-icon>home</mat-icon> <span> S3 Alugueis
+      </span></div>
+    <span fxFlex></span>
+    <button mat-raised-button color="" (click)="logout()">
+      Sair
+    </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

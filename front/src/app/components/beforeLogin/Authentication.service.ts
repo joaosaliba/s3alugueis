@@ -32,4 +32,8 @@ export class AuthenticationService {
   public getToken(): string | null {
     return this.isLoggedIn() ? localStorage.getItem(this.tokenKey) : null;
   }
+  public logout() {
+    localStorage.removeItem(this.tokenKey);
+    this.router.navigate(['/login']);
+  }
 }

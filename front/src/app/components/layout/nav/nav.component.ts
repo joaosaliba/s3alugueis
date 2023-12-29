@@ -2,6 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { AuthenticationService } from './../../beforeLogin/Authentication.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,6 +10,10 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent {
+  constructor(private authenticationService: AuthenticationService) {}
+  logout() {
+    this.authenticationService.logout();
+  }
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver
