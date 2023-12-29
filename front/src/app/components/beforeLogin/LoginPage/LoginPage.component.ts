@@ -8,10 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { AngularMaterialModule } from 'src/app/config/angular-material.module';
 import { AuthenticationService } from '../Authentication.service';
 @Component({
   selector: 'app-login-page',
@@ -21,10 +18,7 @@ import { AuthenticationService } from '../Authentication.service';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatCardModule,
-    MatInputModule,
+    AngularMaterialModule,
   ],
   templateUrl: './LoginPage.component.html',
   styleUrls: ['./LoginPage.component.css'],
