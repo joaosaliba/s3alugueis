@@ -1,13 +1,33 @@
-.authentication-card {
-  width: 25%;
-  margin: 0 auto;
-}
 
-.authentication-card-container {
-  min-height: 100vh;
-}
 .background-image-container {
   background-image: url('../../../../assets/background.jpg');
   background-size: cover;
 
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  width: 400px;
+  max-width: 90%;
+}
+.register-link {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.register-link a {
+  color: #007bff;
+  /* Cor do link */
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+  /* Sublinhar ao passar o mouse */
 }

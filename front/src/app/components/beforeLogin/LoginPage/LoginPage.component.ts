@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   FormControl,
   FormGroup,
@@ -17,7 +16,6 @@ import { AuthenticationService } from '../Authentication.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     AngularMaterialModule,
   ],
   templateUrl: './LoginPage.component.html',

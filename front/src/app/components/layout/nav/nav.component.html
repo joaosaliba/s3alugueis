@@ -1,25 +1,31 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  <mat-sidenav #drawer class="sidenav " fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a *ngFor="let item of menuItems" mat-list-item [routerLink]="'/'+item.path"> {{item.path | titlecase}} </a>
+      <a *ngFor="let item of menuItems" mat-list-item [routerLink]="'/'+item.path"> {{item.name | titlecase}} </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-      >
+    <mat-toolbar color="primary" class="d-flex justify-content-between align-items-center">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      
       </button>
-    <div [routerLink]="'/'" fxFlex fxLayout="row" fxLayoutAlign="start center"> <mat-icon>home</mat-icon> <span> S3 Alugueis
-      </span></div>
-    <span fxFlex></span>
-    <button mat-raised-button color="" (click)="logout()">
-      Sair
-    </button>
+
+      <div [routerLink]="'/'" class="d-flex align-items-center">
+        <mat-icon>home</mat-icon>
+        <span>S3 Alugueis</span>
+      </div>
+
+      <button mat-raised-button (click)="logout()">Sair</button>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+
+    <div class="center-card mt-lg-5">
+      <mat-card class="card">
+        <mat-card-content>
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

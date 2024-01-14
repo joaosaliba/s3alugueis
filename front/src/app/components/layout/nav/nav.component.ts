@@ -24,8 +24,6 @@ export class NavComponent {
     );
 
   menuItems = [
-    { path: 'dashboard' },
-    { path: 'dashboard' },
-    { path: 'dashboard' },
+    { path: 'register', name: 'Novo Usuário' },
   ];
 }
