@@ -1,5 +1,7 @@
 package br.com.s3alugueis.app.service;
 
+import br.com.s3alugueis.app.enums.AuthProvider;
+import br.com.s3alugueis.app.enums.UserRole;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,6 +13,8 @@ import br.com.s3alugueis.app.dto.RegisterRequest;
 import br.com.s3alugueis.app.model.User;
 import br.com.s3alugueis.app.repository.UserRepository;
 import br.com.s3alugueis.app.util.JwtUtil;
+
+import java.time.Instant;
 
 @Service
 public class AuthenticationService {
@@ -34,6 +38,10 @@ public class AuthenticationService {
         user.setName(request.name().trim());
         user.setEmail(request.email().trim());
         user.setPassword(passwordEncoder.encode(request.password()));
+        user.setRole(UserRole.ROLE_ADMIN);
+        user.setProvider(AuthProvider.local);
+        user.setCreatedDate(Instant.now());
+        user.setModifiedDate(Instant.now());
         userRepository.save(user);
         String jwtToken = jwtService.generateToken(user);
         return new AuthenticationResponse(jwtToken);

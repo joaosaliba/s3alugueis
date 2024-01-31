@@ -1,5 +1,8 @@
 package br.com.s3alugueis.app.config;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,13 +19,13 @@ import org.springframework.web.filter.CorsFilter;
 
 import br.com.s3alugueis.app.repository.UserRepository;
 
+import java.util.List;
+
 @Configuration
+@RequiredArgsConstructor
 public class ApplicationConfig {
      private final UserRepository userRepository;
 
-    public ApplicationConfig(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -49,11 +52,14 @@ public class ApplicationConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @Value("${app.cors.allowedOrigins}")
+    private List<String> allowedOrigins;
     @Bean
     public CorsFilter corsFilter() {
+        System.out.println(allowedOrigins);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://localhost:4200"); // Domínio do seu frontend
+        config.setAllowedOrigins(allowedOrigins); // Domínio do seu frontend
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);

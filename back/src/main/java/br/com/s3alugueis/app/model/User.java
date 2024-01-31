@@ -1,28 +1,47 @@
 package br.com.s3alugueis.app.model;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Collection;
 
+import br.com.s3alugueis.app.enums.AuthProvider;
+import br.com.s3alugueis.app.enums.UserRole;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
 @Table(name = "user_app")
+@Getter
+@Setter
 public class User  implements UserDetails  {
     @Id()
      @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique = true)
+    @Column(name="email",unique = true)
     private String email;
     private String password;
     private String name;
 
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+    @Column(name = "created_date", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    protected Instant createdDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    protected Instant modifiedDate;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private AuthProvider provider;
+
+    private String providerId;
 
     public User() {
     }
@@ -30,27 +49,6 @@ public class User  implements UserDetails  {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
 
