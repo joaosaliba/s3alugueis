@@ -1,9 +1,5 @@
 package br.com.s3alugueis.app.model;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Collection;
-
 import br.com.s3alugueis.app.enums.AuthProvider;
 import br.com.s3alugueis.app.enums.UserRole;
 import jakarta.persistence.*;
@@ -13,15 +9,18 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.Instant;
+import java.util.Collection;
+
 @Entity
 @Table(name = "user_app")
 @Getter
 @Setter
-public class User  implements UserDetails  {
+public class User implements UserDetails {
     @Id()
-     @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name="email",unique = true)
+    @Column(name = "email", unique = true)
     private String email;
     private String password;
     private String name;
@@ -84,9 +83,8 @@ public class User  implements UserDetails  {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-     return null;
+        return null;
     }
 
-   
 
 }

@@ -1,0 +1,29 @@
+# Database
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+# Logging
+logging:
+  level:
+    root: warn
+    org.springframework.web: debug
+    org.hibernate: error
+  server:
+    error:
+      include-message: always
+
+# JWT
+jwt:
+  secret: "asplauspintits12324#$%23432"
+  expiration: 100000
+app:
+  cors:
+    allowedOrigins: 'http://localhost:4200'
