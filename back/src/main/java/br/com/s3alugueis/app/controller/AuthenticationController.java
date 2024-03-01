@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.s3alugueis.app.dto.AuthenticationRequest;
-import br.com.s3alugueis.app.dto.AuthenticationResponse;
-import br.com.s3alugueis.app.dto.RegisterRequest;
+import br.com.s3alugueis.app.dto.authentication.AuthenticationRequest;
+import br.com.s3alugueis.app.dto.authentication.AuthenticationResponse;
+import br.com.s3alugueis.app.dto.register.RegisterRequest;
 import br.com.s3alugueis.app.service.AuthenticationService;
 
 @RestController

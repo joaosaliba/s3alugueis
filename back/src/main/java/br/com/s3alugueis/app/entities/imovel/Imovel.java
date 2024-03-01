@@ -1,15 +1,13 @@
-package br.com.s3alugueis.app.model.imovel;
+package br.com.s3alugueis.app.entities.imovel;
 
 import br.com.s3alugueis.app.enums.imovel.TipoImovel;
-import br.com.s3alugueis.app.model.User;
-import br.com.s3alugueis.app.model.pessoa.Pessoa;
+import br.com.s3alugueis.app.entities.pessoa.Pessoa;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor

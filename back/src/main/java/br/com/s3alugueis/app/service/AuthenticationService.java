@@ -7,10 +7,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import br.com.s3alugueis.app.dto.AuthenticationRequest;
-import br.com.s3alugueis.app.dto.AuthenticationResponse;
-import br.com.s3alugueis.app.dto.RegisterRequest;
-import br.com.s3alugueis.app.model.User;
+import br.com.s3alugueis.app.dto.authentication.AuthenticationRequest;
+import br.com.s3alugueis.app.dto.authentication.AuthenticationResponse;
+import br.com.s3alugueis.app.dto.register.RegisterRequest;
+import br.com.s3alugueis.app.entities.User;
 import br.com.s3alugueis.app.repository.UserRepository;
 import br.com.s3alugueis.app.util.JwtUtil;
 

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import br.com.s3alugueis.app.dto.user.UserList;
-import br.com.s3alugueis.app.model.User;
+import br.com.s3alugueis.app.entities.User;
 
 public interface UserRepository  extends JpaRepository<User, Long> {
     

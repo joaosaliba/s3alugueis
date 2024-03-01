@@ -1,4 +1,4 @@
-package br.com.s3alugueis.app.model.pessoa;
+package br.com.s3alugueis.app.entities.pessoa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

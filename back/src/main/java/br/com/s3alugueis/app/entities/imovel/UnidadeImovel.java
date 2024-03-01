@@ -1,4 +1,4 @@
-package br.com.s3alugueis.app.model.imovel;
+package br.com.s3alugueis.app.entities.imovel;
 
 import br.com.s3alugueis.app.enums.imovel.TipoImovel;
 import jakarta.persistence.*;

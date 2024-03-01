@@ -1,6 +1,6 @@
-package br.com.s3alugueis.app.model.imovel;
+package br.com.s3alugueis.app.entities.imovel;
 
-import br.com.s3alugueis.app.model.pessoa.Pessoa;
+import br.com.s3alugueis.app.entities.pessoa.Pessoa;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

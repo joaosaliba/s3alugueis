@@ -1,4 +1,4 @@
-package br.com.s3alugueis.app.model;
+package br.com.s3alugueis.app.entities;
 
 import br.com.s3alugueis.app.enums.AuthProvider;
 import br.com.s3alugueis.app.enums.UserRole;
